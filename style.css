@@ -562,3 +562,44 @@ footer p {
   padding: 5px 10px;
   cursor: pointer;
 }
+
+
+
+.secondary-nav {
+  background-color: #f2f2f2;
+  filter: brightness(90%); /* Darkens the color */
+  opacity: 0.9; /* Adjust opacity */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 7vh; /* Adjust height as needed */
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: top 0.3s;
+  position: fixed; /* Ensure it stays at the top */
+  top: 0; /* Initially hidden */
+  width: 100%;
+  left: 0;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.secondary-nav.hidden {
+  top: -100px; /* Adjust to hide it initially */
+}
+
+.secondary-nav .home-link {
+  font-size: 1.5rem;
+  color: black;
+}
+
+.secondary-nav .home-link:hover {
+  color: grey;
+  text-decoration: underline;
+}
+
+.home-icon {
+  width: 24px; /* Adjust the size as needed */
+  height: 24px; /* Adjust the size as needed */
+  vertical-align: middle; /* Aligns the icon with the text */
+  margin: 0; /* Removes any default margin */
+}
