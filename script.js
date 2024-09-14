@@ -101,15 +101,23 @@ popupContainers.forEach(function(container) {
 
 
 
-window.addEventListener('scroll', function() {
-    const secondaryNav = document.getElementById('secondary-nav');
+// Function to scroll to the top
+document.getElementById('scroll-to-top').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  
+  // Function to show/hide the icon based on scroll position
+  window.addEventListener('scroll', function() {
+    const scrollToTop = document.getElementById('scroll-to-top');
     const firstSection = document.querySelector('section');
     const firstSectionHeight = firstSection ? firstSection.offsetHeight : 0;
   
     if (window.scrollY > firstSectionHeight) {
-      secondaryNav.classList.remove('hidden');
+      scrollToTop.classList.add('show');
     } else {
-      secondaryNav.classList.add('hidden');
+      scrollToTop.classList.remove('show');
     }
   });
+  
   
