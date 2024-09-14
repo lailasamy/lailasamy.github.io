@@ -105,10 +105,11 @@ window.addEventListener('scroll', function() {
     const secondaryNav = document.getElementById('secondary-nav');
     const firstSection = document.querySelector('section');
     const firstSectionHeight = firstSection ? firstSection.offsetHeight : 0;
-
+  
     if (window.scrollY > firstSectionHeight) {
-        secondaryNav.classList.remove('hidden');
+      secondaryNav.classList.remove('hidden');
     } else {
-        secondaryNav.classList.add('hidden');
+      secondaryNav.classList.add('hidden');
     }
-});
+  });
+  

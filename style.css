@@ -565,41 +565,50 @@ footer p {
 
 
 
-.secondary-nav {
-  background-color: #f2f2f2;
-  filter: brightness(90%); /* Darkens the color */
-  opacity: 0.9; /* Adjust opacity */
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 7vh; /* Adjust height as needed */
-  background: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: top 0.3s;
-  position: fixed; /* Ensure it stays at the top */
-  top: 0; /* Initially hidden */
+#secondary-nav {
+  position: fixed;
+  top: 0;
   width: 100%;
-  left: 0;
-  z-index: 1000; /* Ensure it stays above other content */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: top 0.3s;
+  transform: translateY(-100px);
 }
 
-.secondary-nav.hidden {
-  top: -100px; /* Adjust to hide it initially */
+#secondary-nav:hover {
+  transform: translateY(0);
+  background-color: rgba(242, 242, 242, 0.8); 
 }
 
-.secondary-nav .home-link {
+#secondary-nav.active {
+  transform: translateY(0); 
+  background-color: rgba(242, 242, 242, 0.8); 
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
   font-size: 1.5rem;
-  color: black;
 }
 
-.secondary-nav .home-link:hover {
+.nav-links a {
+  color: black;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
   color: grey;
   text-decoration: underline;
 }
 
+
 .home-icon {
-  width: 24px; /* Adjust the size as needed */
-  height: 24px; /* Adjust the size as needed */
-  vertical-align: middle; /* Aligns the icon with the text */
-  margin: 0; /* Removes any default margin */
+  width: 24px; 
+  height: 24px; 
+  vertical-align: middle; 
+  margin: 0; 
 }
