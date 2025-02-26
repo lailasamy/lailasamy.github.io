@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laila Samy Ibrahim</title>
+    <link rel="icon" type="image/png" href="code.svg" sizes="32x32" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <!-- Additional CSS for grid layout and modals -->
+    <style>
+      /* Grid container for new sections */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+      .grid-item {
+        padding: 1.5rem;
+        background: white;
+        border: 0.1rem solid rgb(163, 163, 163);
+        border-radius: 2rem;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      .grid-item:hover {
+        transform: translateY(-5px);
+        background-color: #f0f0f0;
+      }
+      /* Modal styles */
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 2rem;
+        border: 0.1rem solid rgb(163, 163, 163);
+        border-radius: 1rem;
+        z-index: 1000;
+        max-width: 90%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+      .popup.open {
+        display: block;
+      }
+      .popup .popup-content {
+        text-align: left;
+      }
+      .popup .close-btn {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      /* Overlay for modals */
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 900;
+      }
+      .overlay.open {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation (unchanged) -->
+    <nav id="desktop-nav">
+      <div class="logo">Laila Ibrahim</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Laila Ibrahim</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <a href="#" id="scroll-to-top" title="Go to top">
+      <img src="./up.svg" alt="Home" id="scroll-to-top-icon" />
+    </a>
+    
+    <!-- Profile Section -->
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./IMG_3314.png" alt="my pfp" />
+      </div>
+      <div class="section__text">
+        <div class="section__text typing-effect">
+          <h1 id="typing-header">Laila!</h1>
+          <h3>3rd Year mENG Computer Science and Software Engineering Student</h3>
+          <div class="btn-container">
+            <button class="btn btn-color-2" onclick="window.open('./cv.pdf')">
+              My CV
+            </button>
+            <button class="btn btn-color-1" onclick="location.href='./#contact'">
+              Lets Talk!
+            </button>
+          </div>
+          <div id="socials-container">
+            <img
+              src="./linkedin.png"
+              alt="My LinkedIn profile"
+              class="icon"
+              onclick="location.href='https://www.linkedin.com/in/lailasamyibrahim'"
+            />
+            <img
+              src="./github.png"
+              alt="My Github profile"
+              class="icon"
+              onclick="location.href='https://github.com/lailasamy'"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img src="./IMG_3503.png" alt="Profile picture" class="about-pic" />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img src="./experience.png" alt="Experience icon" class="icon" />
+              <h3>Work Experience</h3>
+              <p>
+                1+ Years<br />- Computer Science Student Ambassador<br />- Enterprise Student Ambassador<br />- Social Media and Marketing Manager for ArabSoc<br />- Frontend Developing<br />- UX/UI design
+              </p>
+            </div>
+            <div class="details-container">
+              <img src="./education.png" alt="Education icon" class="icon" />
+              <h3>Education</h3>
+              <p>
+                mENG Computer Science and Software Engineering<br />- Bachelors in Computer Science<br />- Masters in Software Engineering
+              </p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              I am a motivated third-year mENG student pursuing a degree in Computer Science and Software Engineering. I am deeply interested in research areas such as computational neuroscience, healthcare, and Artificial Intelligence, particularly in Machine Learning and Human-Computer Interaction (HCI). My passion also extends to data analysis, visualization, and the development of speech and language technologies.
+            </p>
+            <p>
+              As a multi-faceted entrepreneur, I concurrently manage my own business ventures, curate engaging content on TikTok and YouTube, while also overseeing operations in my jewelry and sticker <a href="https://www.instagram.com/alflaila.ae/">business</a>, crafting and introducing new, innovative pieces into the market.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Arrow points to Professional Experience -->
+      <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#professional'" />
+    </section>
+    
+    <!-- Technical Skills Section (unchanged) -->
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Technical Skills</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <!-- Frontend Development -->
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="article-container">
+              <!-- (All articles as previously defined) -->
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>HTML</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>CSS</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>JavaScript</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>React</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>D3.js</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>TypeScript</h3>
+                  <p>Beginner</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Bootstrap</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- Backend Development -->
+          <div class="details-container">
+            <h2 class="experience-sub-title">Backend Development</h2>
+            <div class="article-container">
+              <!-- (Backend articles) -->
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>PostgreSQL</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Java</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>C</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>C++</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Python</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <!-- Deep Learning & Computer Vision -->
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>TensorFlow</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>PyTorch</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>OpenCV</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <!-- Data Analysis Tools -->
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Pandas</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>NumPy</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>scikit-learn</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Keras</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <!-- Other Languages -->
+          <div class="details-container">
+            <h2 class="experience-sub-title">Other Languages</h2>
+            <div class="article-container">
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Haskell</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>JavaFX</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>MATLAB</h3>
+                  <p>Beginner</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>R</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- Soft & Research Skills -->
+          <div class="details-container">
+            <h2 class="experience-sub-title">Soft & Research Skills</h2>
+            <div class="article-container">
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Research Methodology</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Scientific Writing</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Data Analysis & Visualization</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Critical Thinking</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Communication & Teamwork</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Project Management</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Literature Review</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Statistical Analysis</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Presentation Skills</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Time Management</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+    </section>
+    
+    <!-- Professional Experience Section (Grid with Popup Modals) -->
+    <section id="professional">
+      <p class="section__text__p1">Professional Journey</p>
+      <h1 class="title">Professional Experience</h1>
+      <div class="grid-container">
+        <div class="grid-item" onclick="togglePopup('popup-prof1')">
+          <h2>Google DeepMind - Student Research Intern</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-prof2')">
+          <h2>ARME/VR Lab - Undergraduate Student Intern</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-prof3')">
+          <h2>VR/AR Lab - Student Research Assistant</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-prof4')">
+          <h2>ARME Lab - Undergraduate Student Researcher</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-prof5')">
+          <h2>RTA & KEOLIS-MHI - Student Project Intern</h2>
+        </div>
+      </div>
+      <!-- Professional Popups -->
+      <div class="popup" id="popup-prof1">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-prof1')">&times;</span>
+          <h2>Google DeepMind - Student Research Intern</h2>
+          <p>
+            June 2024 - September 2024<br />
+            Participated in a program designed to prepare undergraduates for postgraduate research. Conducted AI/AR-related research, learned advanced techniques, and attended workshops. This experience led to my advancement and eventually joining the ARME Lab.
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-prof2">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-prof2')">&times;</span>
+          <h2>ARME/VR Lab - Undergraduate Student Intern</h2>
+          <p>
+            July 2024 - August 2024<br />
+            Collaborated with PhD students on a PhD project in Augmented Reality (AR) and human synchronization. Conducted literature reviews and developed code to remove backgrounds from recorded videos for AR integration.
+            <a href="https://virtualrealitylab.netlify.app/people/" target="_blank">View Lab</a>
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-prof3">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-prof3')">&times;</span>
+          <h2>VR/AR Lab - Student Research Assistant</h2>
+          <p>
+            August 2024 - Ongoing<br />
+            Participated in an undergraduate research program focused on AI/AR. Promoted from intern to assistant after contributing significantly to lab projects. Currently working on research papers linked to VR, AR, and computational neuroscience. Responsibilities include conducting literature reviews and assisting with systematic reviews; one paper is being submitted to the CHI Conference.
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-prof4">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-prof4')">&times;</span>
+          <h2>ARME Lab - Undergraduate Student Researcher</h2>
+          <p>
+            August 2024 - Ongoing<br />
+            Collaborated with PhD students on a project focused on AR and human synchronization. Contributed to literature reviews and developed code to remove backgrounds from recorded videos for AR integration. Promoted from intern to research assistant after demonstrating significant contributions.
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-prof5">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-prof5')">&times;</span>
+          <h2>RTA & KEOLIS-MHI - Student Project Intern</h2>
+          <p>
+            August 2024 - October 2024<br />
+            Selected for a prestigious internship to develop solutions to key challenges. Collaborated with cross-functional teams to propose innovative solutions, with my concept chosen for presentation to the CEO and board of directors.
+          </p>
+        </div>
+      </div>
+      <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#extracurricular'" />
+    </section>
+    
+    <!-- Extracurricular Experience Section (Grid with Popup Modals) -->
+    <section id="extracurricular">
+      <p class="section__text__p1">Beyond Academics</p>
+      <h1 class="title">Extracurricular Experience</h1>
+      <div class="grid-container">
+        <div class="grid-item" onclick="togglePopup('popup-extra1')">
+          <h2>UOBD Mentoring Program - Founder & Chair</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-extra2')">
+          <h2>Lab Demonstrator & Teaching Assistant</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-extra3')">
+          <h2>Arab Society - Social Media & Marketing Manager</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-extra4')">
+          <h2>Computer Science Student Ambassador</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-extra5')">
+          <h2>Zero Gravity - Student Mentor</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-extra6')">
+          <h2>BYTEsize Magazine - Founder & Chair Person</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-extra7')">
+          <h2>ACM - Executive Member</h2>
+        </div>
+      </div>
+      <!-- Extracurricular Popups -->
+      <div class="popup" id="popup-extra1">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-extra1')">&times;</span>
+          <h2>UOBD Mentoring Program - Founder & Chair</h2>
+          <p>
+            September 2024 - Ongoing<br />
+            Established the Mentoring Program at the University of Birmingham Dubai, selecting the top 1% of third-year students to tutor and guide first- and second-year students. This initiative promotes peer-driven academic excellence and strengthens the AI and computer science community.
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-extra2">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-extra2')">&times;</span>
+          <h2>Lab Demonstrator & Teaching Assistant</h2>
+          <p>
+            January 2025 - Ongoing<br />
+            Lead weekly meetings, provide structured feedback, review code and technical write-ups, mentor students in AI and CS, and support faculty in lab sessions.
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-extra3">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-extra3')">&times;</span>
+          <h2>Arab Society - Social Media & Marketing Manager</h2>
+          <p>
+            December 2023 - May 2024<br />
+            Oversaw marketing strategies, managed content development, and engaged with the community to boost event visibility and participation.
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-extra4">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-extra4')">&times;</span>
+          <h2>Computer Science Student Ambassador</h2>
+          <p>
+            October 2023 - Ongoing<br />
+            Represent the department to prospective students and families by delivering presentations, leading campus tours, and participating in open days and Q&A panels.
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-extra5">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-extra5')">&times;</span>
+          <h2>Zero Gravity - Student Mentor</h2>
+          <p>
+            March 2024 - Ongoing<br />
+            Guide students through university applications by developing personalized strategies and leveraging personal experiences.
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-extra6">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-extra6')">&times;</span>
+          <h2>BYTEsize Magazine - Founder & Chair Person</h2>
+          <p>
+            February 2024 - Ongoing<br />
+            Established a collaborative platform for students, researchers, and industry professionals in AI, robotics, software engineering, physics, and astronomy to share insights and showcase research. Leading a team of 13 members.
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-extra7">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-extra7')">&times;</span>
+          <h2>ACM - Executive Member</h2>
+          <p>
+            August 2024 - Ongoing<br />
+            Organize and host events, workshops, and competitions while boosting student engagement through social media and marketing. Ensure initiatives align with the chapter's mission to enhance skills and networking in computer science.
+          </p>
+        </div>
+      </div>
+      <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#research'" />
+    </section>
+    
+    <!-- Research Experience Section (Grid with Popup Modals) -->
+    <section id="research">
+      <p class="section__text__p1">Deep Dive</p>
+      <h1 class="title">Research Experience</h1>
+      <div class="grid-container">
+        <div class="grid-item" onclick="togglePopup('popup-res1')">
+          <h2>Google DeepMind - Student Research Intern</h2>
+        </div>
+        <div class="grid-item" onclick="togglePopup('popup-res2')">
+          <h2>VR/AR Lab - Student Research Assistant</h2>
+        </div>
+      </div>
+      <!-- Research Experience Popups -->
+      <div class="popup" id="popup-res1">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-res1')">&times;</span>
+          <h2>Google DeepMind - Student Research Intern</h2>
+          <p>
+            June 2024 - September 2024<br />
+            Participated in an intensive research program in AI/AR. Conducted advanced research, attended workshops, and contributed to projects that paved the way for further research opportunities.
+          </p>
+        </div>
+      </div>
+      <div class="popup" id="popup-res2">
+        <div class="popup-content">
+          <span class="close-btn" onclick="togglePopup('popup-res2')">&times;</span>
+          <h2>VR/AR Lab - Student Research Assistant</h2>
+          <p>
+            August 2024 - Ongoing<br />
+            Participated in an undergraduate research program focused on AI/AR. Promoted from intern to assistant after contributing significantly to lab projects. Currently working on research papers linked to VR, AR, and computational neuroscience. Responsibilities include conducting literature reviews and assisting with systematic reviews; one paper is being submitted to the CHI Conference.
+          </p>
+        </div>
+      </div>
+      <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#awards-certifications'" />
+    </section>
+    
+    <!-- Awards & Certifications Section -->
+    <section id="awards-certifications">
+      <p class="section__text__p1">Achievements</p>
+      <h1 class="title">Awards & Certifications</h1>
+      <div class="grid-container">
+        <div class="grid-item">
+          <h2>Data Analysis and Python Certification</h2>
+          <p>June 2024</p>
+        </div>
+        <div class="grid-item">
+          <h2>Foundational C# with Microsoft (freeCodeCamp)</h2>
+          <p>June 2024</p>
+        </div>
+        <div class="grid-item">
+          <h2>Microsoft Azure AI Fundamentals: NLP and Computer Vision</h2>
+          <p>June 2024</p>
+        </div>
+        <div class="grid-item">
+          <h2>American Sign Language (Eton Institute)</h2>
+          <p>August 2020</p>
+        </div>
+      </div>
+      <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#education-skills'" />
+    </section>
+    
+    <!-- Education & Skills Section -->
+    <section id="education-skills">
+      <p class="section__text__p1">Academic Journey</p>
+      <h1 class="title">Education & Skills</h1>
+      <div class="grid-container">
+        <div class="grid-item">
+          <h2>University of Birmingham</h2>
+          <p>
+            mENG Computer Science and Software Engineering<br />
+            (September 2022 - Ongoing, Predicted 1:1)
+          </p>
+        </div>
+        <div class="grid-item">
+          <h2>Uptown International School</h2>
+          <p>
+            International Baccalaureate (41/45, Honors distinction in Chemistry, Mathematics and Business)<br />
+            (September 2019 - May 2021)
+          </p>
+        </div>
+      </div>
+      <div class="grid-container">
+        <div class="grid-item">
+          <h2>Technical Skills</h2>
+          <p>
+            <strong>Programming Languages:</strong> Python, Java, C, Haskell, R<br />
+            <strong>Data Analysis & Processing:</strong> Data analysis, data processing, data mining, statistical analysis<br />
+            <strong>Statistical Methods:</strong> Statistics<br />
+            <strong>Tools & Technologies:</strong> SQL, Excel, TensorFlow<br />
+            <strong>Research & Machine Learning:</strong> Machine learning, statistical analysis, data structures<br />
+            SL English (6), Mathematics AA (7), Business (7); EE/TOK - B
+          </p>
+        </div>
+      </div>
+      <img src="./arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img src="./email.png" alt="Email icon" class="icon contact-icon email-icon" />
+          <p><a href="mailto:lms.ibrahimm@gmail.com">Email Me</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img src="./linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
+          <p><a href="https://www.linkedin.com/in/lailasamyibrahim">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2023 Laila Ibrahim. All Rights Reserved.</p>
+    </footer>
+    
+    <!-- Overlay for Modals -->
+    <div class="overlay" id="modalOverlay" onclick="closeAllPopups()"></div>
+    
+    <!-- JavaScript -->
+    <script>
+      // Toggle hamburger menu
+      function toggleMenu(){
+        const menu = document.querySelector(".menu-links");
+        const icon = document.querySelector(".hamburger-icon");
+        menu.classList.toggle("open");
+        icon.classList.toggle("open");
+      }
+      
+      // Toggle popup modal by id
+      function togglePopup(id){
+        const popup = document.getElementById(id);
+        const overlay = document.getElementById('modalOverlay');
+        if(popup.classList.contains('open')){
+          popup.classList.remove('open');
+          overlay.classList.remove('open');
+        } else {
+          closeAllPopups();
+          popup.classList.add('open');
+          overlay.classList.add('open');
+        }
+      }
+      
+      // Close all popups
+      function closeAllPopups(){
+        document.querySelectorAll('.popup').forEach(function(p){
+          p.classList.remove('open');
+        });
+        document.getElementById('modalOverlay').classList.remove('open');
+      }
+      
+      // Scroll-to-top button
+      document.getElementById('scroll-to-top').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      
+      window.addEventListener('scroll', function() {
+        const scrollToTop = document.getElementById('scroll-to-top');
+        const firstSection = document.querySelector('section');
+        const firstSectionHeight = firstSection ? firstSection.offsetHeight : 0;
+        if(window.scrollY > firstSectionHeight){
+          scrollToTop.classList.add('show');
+        } else {
+          scrollToTop.classList.remove('show');
+        }
+      });
+      
+      // Typing effect
+      function setTypingHeader(text) {
+        const typingHeader = document.getElementById("typing-header");
+        typingHeader.textContent = text;
+      }
+      
+      function animateTyping() {
+        const text = "Hey, I'm Laila";
+        let index = 0;
+        function type(){
+          if(index < text.length){
+            setTypingHeader(text.slice(0, ++index));
+            setTimeout(type, 100);
+          }
+        }
+        type();
+      }
+      
+      animateTyping();
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
